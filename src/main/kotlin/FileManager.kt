@@ -65,13 +65,13 @@ class FileManager () {
 
     }
 
-    fun calcularNotaFinal(alumno: Map<String, String?>): Double {
+    fun calcularNotaFinal(alumno: Map<String, String?>): Int {
         val nota1 = if((alumno["parcial1"]?.toDouble()?: 0.0) < 5 && alumno["ordinaria1"] != null) alumno["ordinaria1"]?.toDouble()?: 0.0 else alumno["parcial1"]?.toDouble()?: 0.0
         val nota2 = if((alumno["parcial2"]?.toDouble()?: 0.0) < 5 && alumno["ordinaria2"] != null) alumno["ordinaria2"]?.toDouble()?: 0.0 else alumno["parcial2"]?.toDouble()?: 0.0
         val practicas = if((alumno["practicas"]?.toDouble()?: 0.0) < 5 && alumno["ordinariaPracticas"] != null) alumno["ordinariaPracticas"]?.toDouble()?: 0.0 else alumno["practicas"]?.toDouble()?: 0.0
 
         val notaFinal = (nota1 * 0.3) + (nota2 * 0.3) + (practicas * 0.4)
 
-        return round(notaFinal)
+        return notaFinal.toInt()
     }
 }
